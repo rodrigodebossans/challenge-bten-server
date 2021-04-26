@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node dist/server.js",
     "start:dev": "ts-node-dev -r tsconfig-paths/register --poll --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
+    "start:prod": "node dist/server.js",
     "dev": "docker compose up",
     "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
     "test": "jest"

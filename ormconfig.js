@@ -3,12 +3,8 @@ const dbconfig = {
   url: process.env.DATABASE_URL,
   synchronize: true,
   logging: false,
-  entities: [
-    'src/models/*.{ts,js}',
-  ],
-  migrations: [
-    'src/database/migration/*.{ts,js}',
-  ],
+  entities: ['src/models/*.{ts,js}'],
+  migrations: ['src/database/migration/*.{ts,js}'],
   cli: {
     entitiesDir: 'src/models',
     migrationsDir: 'src/database/migration',
@@ -25,4 +21,4 @@ if (process.env.NODE_ENV !== 'dev') {
   };
 }
 
-export default dbconfig;
+module.exports = dbconfig;
