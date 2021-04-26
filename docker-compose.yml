@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  postgres:
+    image: "postgis/postgis"
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "SampleDB"
+  app:
+    image: node:14.16.1
+    ports:
+      - "3000:3000"
+    environment:
+      DOCKER: 'true'
+    working_dir: "/home/node/app"
+    volumes:
+      - .:/home/node/app
+      - /home/node/app/node_modules
+    command: bash -c "yarn install && yarn start:dev"
+    links:
+      - "postgres:database"
